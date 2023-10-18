@@ -89,7 +89,7 @@ void _pchar(stack_t **stack, unsigned int line_number)
 	}
 
 	putchar(value);
-	putchar('\n');
+	putchar(10);
 }
 
 /**
@@ -109,5 +109,5 @@ void _pstr(stack_t **stack, unsigned int line_number)
 		value = value->next;
 	}
 
-	putchar('\n');
+	putchar(10);
 }

@@ -21,7 +21,7 @@ void handle_command(char *argv)
 			arguments = strtok(global.line, " \n\t\r");
 			if (arguments == NULL)
 				continue;
-			else if (*arguments == '#')
+			else if (*arguments == '#')/*handle comments*/
 				continue;
 			item = strtok(NULL, " \n\t\r");
 			result = get_opc(&stack, arguments, item, count);
@@ -61,6 +61,10 @@ int get_opc(stack_t **stack, char *arg, char *item, int count)
 		{"swap", _swap},
 		{"add", _add},
 		{"nop", _nop},
+		{"sub", _sub},
+		{"div", _div},
+		{"mul", _mul},
+		{"mod", _mod},
 		{NULL, NULL}};
 
 	while (op[i].opcode)

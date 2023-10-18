@@ -52,3 +52,21 @@ void _nop(stack_t **stack, unsigned int line_number)
 
 	/*do nothing*/
 }
+
+/**
+ * _sub - function subtracts two integer
+ * @stack: Stack list
+ * @line_number: Number of the line
+ */
+void _sub(stack_t **stack, unsigned int line_number)
+{
+	if (*stack == NULL || (*stack)->next == NULL)
+	{
+		dprintf(STDERR_FILENO, "L%u: can't sub, stack too short\n", line_number);
+		clean_stack(*stack);
+		exit(EXIT_FAILURE);
+	}
+
+	(*stack)->next->n -= (*stack)->n;
+	_pop(stack, line_number);/*Remove the top element*/
+}

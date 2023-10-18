@@ -38,9 +38,9 @@ instruction_t *initialize_instructions(void)
 	instruction_t mul = {"mul", _mul};
 	instruction_t mod = {"mod", _mod};
 	instruction_t pchar = {"pchar", _pchar};
-        instruction_t pstr = {"pstr", _pstr};
+	instruction_t pstr = {"pstr", _pstr};
 	instruction_t rotl = {"rotl", _rotl};
-        instruction_t rotr = {"rotr", _rotr};
+	instruction_t rotr = {"rotr", _rotr};
 	instruction_t terminator = {NULL, NULL};
 
 	if (!op)
@@ -48,7 +48,6 @@ instruction_t *initialize_instructions(void)
 		fprintf(stderr, "Memory allocation failed\n");
 		exit(EXIT_FAILURE);
 	}
-
 	op[0] = push;
 	op[1] = pall;
 	op[2] = pint;
@@ -65,7 +64,6 @@ instruction_t *initialize_instructions(void)
 	op[13] = rotl;
 	op[14] = rotr;
 	op[15] = terminator;
-
 	return (op);
 }
 /**

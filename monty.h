@@ -79,6 +79,8 @@ void _mod(stack_t **stack, unsigned int line_number);
 
 void free_dlistint(stack_t *stack);
 void clean_stack(stack_t *stack);
+void free_instructions(instruction_t *op);
+instruction_t *initialize_instructions(void);
 
 
 void handle_command(char *argv);

@@ -52,20 +52,7 @@ void handle_command(char *argv)
 int get_opc(stack_t **stack, char *arg, char *item, int count)
 {
 	int i = 0;
-
-	instruction_t op[] = {
-		{"push", _push},
-		{"pall", _pall},
-		{"pint", _pint},
-		{"pop", _pop},
-		{"swap", _swap},
-		{"add", _add},
-		{"nop", _nop},
-		{"sub", _sub},
-		{"div", _div},
-		{"mul", _mul},
-		{"mod", _mod},
-		{NULL, NULL}};
+	instruction_t *op = initialize_instructions();
 
 	while (op[i].opcode)
 	{
@@ -93,5 +80,6 @@ int get_opc(stack_t **stack, char *arg, char *item, int count)
 	}
 	if (!op[i].opcode)
 		return (2);
+	free_instructions(op);
 	return (0);
 }

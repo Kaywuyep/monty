@@ -25,7 +25,7 @@ int _isdigit(const char *str)
  */
 instruction_t *initialize_instructions(void)
 {
-	instruction_t *op = malloc(sizeof(instruction_t) * 12);
+	instruction_t *op = malloc(sizeof(instruction_t) * 16);
 	instruction_t push = {"push", _push};
 	instruction_t pall = {"pall", _pall};
 	instruction_t pint = {"pint", _pint};
@@ -37,6 +37,10 @@ instruction_t *initialize_instructions(void)
 	instruction_t div = {"div", _div};
 	instruction_t mul = {"mul", _mul};
 	instruction_t mod = {"mod", _mod};
+	instruction_t pchar = {"pchar", _pchar};
+        instruction_t pstr = {"pstr", _pstr};
+	instruction_t rotl = {"rotl", _rotl};
+        instruction_t rotr = {"rotr", _rotr};
 	instruction_t terminator = {NULL, NULL};
 
 	if (!op)
@@ -56,7 +60,11 @@ instruction_t *initialize_instructions(void)
 	op[8] = div;
 	op[9] = mul;
 	op[10] = mod;
-	op[11] = terminator;
+	op[11] = pchar;
+	op[12] = pstr;
+	op[13] = rotl;
+	op[14] = rotr;
+	op[15] = terminator;
 
 	return (op);
 }

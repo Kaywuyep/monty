@@ -47,6 +47,8 @@ void _mul(stack_t **stack, unsigned int line_number)
  */
 void _mod(stack_t **stack, unsigned int line_number)
 {
+	int div = 0;
+
 	if (*stack == NULL || (*stack)->next == NULL)
 	{
 		dprintf(STDERR_FILENO, "L%u: can't mod, stack too short\n", line_number);
@@ -59,7 +61,8 @@ void _mod(stack_t **stack, unsigned int line_number)
 		clean_stack(*stack);
 		exit(EXIT_FAILURE);
 	}
-	(*stack)->next->n %= (*stack)->n;
+	div = (*stack)->next->n %= (*stack)->n;
+	(*stack)->next->n = div;
 	_pop(stack, line_number);
 }
 
